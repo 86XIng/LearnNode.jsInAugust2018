@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="ajax.js"></script>
+    <script>
+        window.onload = function (){
+                var oUser = document.getElementById('usr');
+                var oPass = document.getElementById('password');
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function (){
+                    new ajax({
+                        url:'./login',
+                        data: {user:oUser.value,pass:oPass.value},
+                        success: function(str){
+                            eval("var json="+str);
+                            if(json.ok){
+                                alert('登陆成功');
+                            } else {
+                                alert('登陆失败'+json.msg);
+                            }
+                        }
+                    });
+                }
+        }
+    </script>
+</head>
+<body>
+    用户名：<input type="text" id='usr'> <br>
+    密码：<input type="password" id='password'> <br>
+    <input type="submit" value="提交" id='btn'>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- var oUser = document.getElementById('usr'); -->
+            <!-- // var oPass = document.getElementById('password');
+            // var oBtn = document.getElementById('btn');
+            // oBtn.onclick = function(){
+            //     ajax({
+            //         url:'/login',
+            //         data:{user:oUser.value,pass:oPass.value},
+            //         success:function(str){
+            //             var json = eval('('+str+')');
+            //             if(json.ok){
+            //                 alert('登陆成功');
+            //             } else {
+            //                 alert('登陆失败'+'\n'+json.msg);
+            //             }
+            //         }
+            //     }) -->
