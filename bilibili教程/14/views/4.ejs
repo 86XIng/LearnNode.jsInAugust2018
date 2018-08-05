@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <% var str = "<div></div>"%>
+        <!-- <%=str%> -->
+        <!-- 会输出转义后的代码
+        防止注入攻击
+        &lt;div&gt;&lt;/div&gt; -->
+        <%- str%>
+    </div>
+    
+</body>
+</html>
